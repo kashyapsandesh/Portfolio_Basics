@@ -1,3 +1,37 @@
+
+//Email Js integration
+function sendEmail(){
+    //production
+    console.log('here')
+    var params ={
+        name: document.getElementById('name').value,
+        email:document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message:document.getElementById('message').value,
+    }
+
+     var paramsDev ={
+        name: `Sandesh ${math.floor(math.random(1)*10)}`, 
+        email:'sandesh123@gmail.com ',
+        subject:'This is test mail' ,
+        message:"This is a test helllo"
+    }
+    const serviceID = "service_utsbn2a";
+    const templateID = "template_onfimvj";
+    emailjs.send(serviceID,templateID,paramsDev)
+    .then(
+        res=>{
+            document.getElementById('name').value='';
+            document.getElementById('email').value='';
+            document.getElementById('subject').value='';
+            document.getElementById('message').value='';
+            console.log(res);
+            
+        
+        }
+    )
+    .catch((err)=>console.log(err));
+}
 //portfolio Item Filter
 const filterContainer=document.querySelector(".portfolio-filter"),
 filterBtns=filterContainer.children,
